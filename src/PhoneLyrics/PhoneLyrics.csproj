@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets/PhoneLyrics.ico</ApplicationIcon>
+    <Version>0.1.0</Version>
+    <Product>PhoneLyrics</Product>
+    <Description>iPhone AMS desktop and taskbar lyrics for Windows</Description>
+    <Authors>yosoro114514</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/yosoro114514/PhoneLyrics</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets/PhoneLyrics.ico" LogicalName="PhoneLyrics.Icon" />
+    <EmbeddedResource Include="../../LICENSE" LogicalName="PhoneLyrics.License" />
+    <EmbeddedResource Include="../../THIRD_PARTY_NOTICES.md" LogicalName="PhoneLyrics.Notices" />
+    <EmbeddedResource Include="../../licenses/dotnet-runtime-LICENSE.txt" LogicalName="PhoneLyrics.DotNetLicense" />
+    <EmbeddedResource Include="../../licenses/dotnet-runtime-THIRD-PARTY-NOTICES.txt" LogicalName="PhoneLyrics.DotNetNotices" />
+    <EmbeddedResource Include="../../licenses/windowsdesktop-runtime-LICENSE.txt" LogicalName="PhoneLyrics.DesktopRuntimeLicense" />
+    <EmbeddedResource Include="../../licenses/cswinrt-LICENSE.txt" LogicalName="PhoneLyrics.CsWinRTLicense" />
+    <EmbeddedResource Include="../../licenses/windows-sdk-LICENSE.txt" LogicalName="PhoneLyrics.WindowsSdkLicense" />
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+</Project>

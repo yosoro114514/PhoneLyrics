@@ -1,0 +1,21 @@
+# Build output and local application data
+**/bin/
+**/obj/
+/artifacts/
+/diagnostics/
+**/overlay-settings.json
+*.log
+*.user
+*.suo
+.vs/
+.idea/
+
+# Original exploration, captures, device names and reference checkouts stay local.
+/local-only/
+/verification/
+/references/
+
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example

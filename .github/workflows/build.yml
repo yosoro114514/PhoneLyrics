@@ -1,0 +1,43 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build
+        run: dotnet build PhoneLyrics.slnx -c Release
+      - name: Check protocol and geometry
+        run: dotnet run --project tests/PhoneLyrics.Tests -c Release --no-build
+      - name: Publish portable EXE
+        run: ./scripts/Publish-Portable.ps1
+      - name: Package release attachments
+        run: ./scripts/Package-Release.ps1
+      - name: Publish console diagnostics
+        run: ./scripts/Publish-Diagnostics.ps1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: PhoneLyrics-win-x64
+          path: |
+            artifacts/release/PhoneLyrics-v*-win-x64.zip
+            artifacts/release/PhoneLyrics-v*-win-x64.exe
+            artifacts/release/SHA256SUMS.txt
+          if-no-files-found: error
+          compression-level: 0
