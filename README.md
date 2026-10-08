@@ -4,6 +4,8 @@
 
 # PhoneLyrics
 
+[![Build Windows](https://github.com/yosoro114514/PhoneLyrics/actions/workflows/build.yml/badge.svg)](https://github.com/yosoro114514/PhoneLyrics/actions/workflows/build.yml)
+
 把 iPhone 正在播放的媒体文字，显示为 Windows 透明桌面歌词或任务栏歌词。
 
 PhoneLyrics 使用 [Apple Media Service（AMS）](https://developer.apple.com/library/archive/documentation/CoreBluetooth/Reference/AppleMediaService_Reference/Introduction/Introduction.html) 蓝牙接口接收手机媒体通知，并提供播放控制。手机负责播放声音，电脑负责显示歌词和发送控制指令。

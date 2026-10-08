@@ -11,7 +11,9 @@ $version = [string]$project.Project.PropertyGroup.Version
 if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Expected a numeric three-part project version.' }
 $sourceExe = Join-Path $PortableDirectory 'PhoneLyrics.exe'
 $info = (Get-Item -LiteralPath $sourceExe).VersionInfo
-if ($info.ProductName -ne 'PhoneLyrics' -or $info.ProductVersion -ne $version) {
+# The .NET SDK appends +<commit SHA> after a repository has a commit.
+$executableVersion = ([string]$info.ProductVersion -split '\+', 2)[0]
+if ($info.ProductName -ne 'PhoneLyrics' -or $executableVersion -ne $version) {
     throw 'Publish the current PhoneLyrics project before packaging; executable version/product does not match.'
 }
 
